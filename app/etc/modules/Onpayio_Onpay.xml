@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Onpayio_Onpay>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Onpayio_Onpay>
+    </modules>
+</config>

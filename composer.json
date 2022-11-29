@@ -1,0 +1,10 @@
+{
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "require": {
+        "onpayio/php-sdk": "^1.0"
+    }
+}
