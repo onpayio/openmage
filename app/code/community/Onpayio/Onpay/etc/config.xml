@@ -8,14 +8,19 @@
     <global>
         <models>
             <onpay>
-                <class>Onpayio_Onpay_Model</version>
+                <class>Onpayio_Onpay_Model</class>
             </onpay>
         </models>
         <helpers>
             <onpay>
-                <class>Onpayio_Onpay_Helper</version>
+                <class>Onpayio_Onpay_Helper</class>
             </onpay>
         </helpers>
+        <blocks>
+            <onpay>
+                <class>Onpayio_Onpay_Block</class>
+            </onpay>
+        </blocks>
     </global>
     <default>
         <payment>
