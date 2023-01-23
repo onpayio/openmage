@@ -17,4 +17,29 @@
             </onpay>
         </helpers>
     </global>
+    <default>
+        <payment>
+            <onpay_card>
+                <model>onpay/method_card</model>
+                <title>OnPay.io - Credit Card</title>
+                <active>1</active>
+                <order_status>pending</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <sort_order>1</sort_order>
+                <allowspecific>0</allowspecific>
+                <instructions></instructions>
+            </onpay_card>
+        </payment>
+    </default>
+    <frontend>
+        <routers>
+            <onpay>
+                <use>standard</use>
+                <args>
+                    <module>Onpayio_Onpay</module>
+                    <frontname>onpay</frontname>
+                </args>
+            </onpay>
+        </routers>
+    </frontend>
 </config>
