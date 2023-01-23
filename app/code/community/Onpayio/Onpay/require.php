@@ -12,6 +12,7 @@
     class_alias('OpenmageOnpay\OnPay\OnPayAPI', 'OnPay\OnPayAPI');
 
     class_alias('OpenmageOnpay\OnPay\TokenStorageInterface', 'OnPay\TokenStorageInterface');
+    class_alias('OpenmageOnpay\OnPay\StaticToken', 'OnPay\StaticToken');
 
     class_alias('OpenmageOnpay\OnPay\API\GatewayService', 'OnPay\API\GatewayService');
     class_alias('OpenmageOnpay\OnPay\API\PaymentWindow', 'OnPay\API\PaymentWindow');
@@ -42,6 +43,7 @@
     class_alias('OpenmageOnpay\OnPay\API\Util\Converter', 'OnPay\API\Util\Converter');
     class_alias('OpenmageOnpay\OnPay\API\Util\Link', 'OnPay\API\Util\Link');
     class_alias('OpenmageOnpay\OnPay\API\Util\Pagination', 'OnPay\API\Util\Pagination');
+    class_alias('OpenmageOnpay\OnPay\API\Util\PaymentMethods\Enums\Methods', 'OnPay\API\Util\PaymentMethods\Enums\Methods');
 
     /**
      * Other Classes
