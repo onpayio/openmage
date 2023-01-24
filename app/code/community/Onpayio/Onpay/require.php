@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/build/vendor/scoper-autoload.php';
+    require_once __DIR__ . '/Model/build/vendor/scoper-autoload.php';
 
     /**
      * Here we'll map out classes used directly in OnPay Openmage plugin or helper classes.
