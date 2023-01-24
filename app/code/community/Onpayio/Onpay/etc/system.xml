@@ -37,9 +37,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </gateway>
-<<<<<<< Updated upstream
-
-=======
                         <testmode translate="label">
                             <label>Test mode</label>
                             <frontend_type>select</frontend_type>
@@ -76,7 +73,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </window3dsecure>
->>>>>>> Stashed changes
                     </fields>
                 </onpay>
                 <onpay_card>
