@@ -6,11 +6,13 @@ use OnPay\OnPayAPI;
 use OnPay\API\PaymentWindow;
 
 class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
+    const ONPAY_PLUGIN_VERSION = '0.0.1';
 
     public function getPaymentLink(?string $method) {
         $paymentWindow = $this->createPaymentWindow($method);
         $onpayApi = $this->getOnPayClient();
         $payment = $onpayApi->payment()->createNewPayment($paymentWindow);
+
         return $payment->getPaymentWindowLink();
     }
 
@@ -43,11 +45,13 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
         }
 
         $paymentWindow = new PaymentWindow();
-        $paymentWindow->setGatewayId('test');
-        $paymentWindow->setSecret('test');
-        $paymentWindow->setTestMode(1); // TODO: Set Testmode value from settings
-        $paymentWindow->setPlatform('OpenMage', '', ''); // TODO: Set plugin and openmage version
-        $paymentWindow->setWebsite('https://placeholder.onpay.io/'); // TODO: Set website value
+        $testmode = 1;
+        if ($this->getSetting('testmode') === '0') {
+            $testmode = 0;
+        }
+        $paymentWindow->setTestMode($testmode);
+        $paymentWindow->setPlatform('openmage', self::ONPAY_PLUGIN_VERSION, Mage::getVersion());
+        $paymentWindow->setWebsite(Mage::getUrl());
 
         if ($method !== null) {
             $paymentWindow->setMethod($method);
@@ -59,6 +63,13 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
         $paymentWindow->setAmount($minorAmount);
         $paymentWindow->setReference($order->getIncrementId());
 
+        $paymentWindow->setDesign($this->getSetting('windowdesign'));
+        $paymentWindow->setLanguage($this->getSetting('windowlanguage'));
+
         return $paymentWindow;
+    }
+
+    private function getSetting($setting, $entity = 'onpay') {
+        return Mage::getStoreConfig('payment/' . $entity . '/' . $setting);
     }
 }
