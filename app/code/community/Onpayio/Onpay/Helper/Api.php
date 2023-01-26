@@ -12,7 +12,6 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
         $paymentWindow = $this->createPaymentWindow($method);
         $onpayApi = $this->getOnPayClient();
         $payment = $onpayApi->payment()->createNewPayment($paymentWindow);
-
         return $payment->getPaymentWindowLink();
     }
 
@@ -65,6 +64,8 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
 
         $paymentWindow->setDesign($this->getSetting('windowdesign'));
         $paymentWindow->setLanguage($this->getSetting('windowlanguage'));
+
+        $paymentWindow->setDeclineUrl(Mage::getUrl('onpay/payment/cancel'));
 
         return $paymentWindow;
     }
