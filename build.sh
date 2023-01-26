@@ -47,8 +47,9 @@ rm ./openmage-onpay/build.sh
 rm ./openmage-onpay/composer.json
 rm ./openmage-onpay/composer.lock
 rm ./openmage-onpay/scoper.inc.php
+rm ./openmage-onpay/LICENSE
 
-mv ./openmage-onpay/build ./openmage-onpay/app/code/community/Onpayio/Onpay/
+mv ./openmage-onpay/build ./openmage-onpay/app/code/community/Onpayio/Onpay/Model/
 
 # Zip contents of newly created directory
 cd openmage-onpay

@@ -42,7 +42,7 @@
                 <use>standard</use>
                 <args>
                     <module>Onpayio_Onpay</module>
-                    <frontname>onpay</frontname>
+                    <frontName>onpay</frontName>
                 </args>
             </onpay>
         </routers>
