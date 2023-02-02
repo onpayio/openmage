@@ -2,14 +2,14 @@
 
 class Onpayio_Onpay_Helper_Checkout extends Mage_Core_Helper_Abstract {
     public function restoreQuote() {
-        $order = $this->_getCheckoutSession()->getLastRealOrder();
+        $order = $this->getCheckoutSession()->getLastRealOrder();
         if ($order->getId()) {
             $quote = $this->_getQuote($order->getQuoteId());
             if ($quote->getId()) {
                 $quote->setIsActive(1)
                     ->setReservedOrderId(null)
                     ->save();
-                $this->_getCheckoutSession()
+                $this->getCheckoutSession()
                     ->replaceQuote($quote)
                     ->unsLastRealOrderId();
                 return true;
@@ -18,7 +18,7 @@ class Onpayio_Onpay_Helper_Checkout extends Mage_Core_Helper_Abstract {
         return false;
     }
 
-    protected function _getCheckoutSession() {
+    public function getCheckoutSession() {
         return Mage::getSingleton('checkout/session');
     }
 
