@@ -20,6 +20,12 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
         return $onpayApi->gateway()->getPaymentWindowDesigns();
     }
 
+    public function isReturnQueryValid(array $query) {
+        $paymentWindow = new \OnPay\API\PaymentWindow();
+        $paymentWindow->setSecret($this->getSetting('secret'));
+        return $paymentWindow->validatePayment($query);
+    }
+
     private function getOnPayClient() {
         $accessToken = Mage::getStoreConfig('payment/onpay/apikey');
         $tokenStorage = new \OnPay\StaticToken($accessToken);
@@ -32,6 +38,11 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
     private function getOrder() {
         $quoteId = Mage::getSingleton('checkout/session')->getQuoteId();
         return Mage::getModel("sales/order")->load($quoteId);
+    }
+
+    private function getReservedOrderId() {
+        $quote = Mage::getSingleton('checkout/session')->getQuote();
+        return $quote->getReservedOrderId();
     }
 
     protected function createPaymentWindow(?string $method) {
@@ -60,12 +71,15 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
 
         $paymentWindow->setCurrency($order->getOrderCurrencyCode());
         $paymentWindow->setAmount($minorAmount);
-        $paymentWindow->setReference($order->getIncrementId());
+
+        $paymentWindow->setReference($this->getReservedOrderId());
 
         $paymentWindow->setDesign($this->getSetting('windowdesign'));
         $paymentWindow->setLanguage($this->getSetting('windowlanguage'));
 
         $paymentWindow->setDeclineUrl(Mage::getUrl('onpay/payment/cancel'));
+        $paymentWindow->setAcceptUrl(Mage::getUrl('onpay/payment/success'));
+        $paymentWindow->setCallbackUrl(Mage::getUrl('onpay/payment/callback'));
 
         return $paymentWindow;
     }

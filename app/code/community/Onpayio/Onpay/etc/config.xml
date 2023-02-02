@@ -21,18 +21,26 @@
                 <class>Onpayio_Onpay_Block</class>
             </onpay>
         </blocks>
+        <payment>
+            <groups>
+                <onpay>OnPay.io</onpay>
+            </groups>
+        </payment>
     </global>
     <default>
         <payment>
+            <onpay>
+                <group>onpay</group>
+            </onpay>
             <onpay_card>
                 <model>onpay/method_card</model>
                 <title>OnPay.io - Credit Card</title>
                 <active>1</active>
+                <allowspecific>0</allowspecific>
+                <sort_order>1</sort_order>
                 <order_status>pending</order_status>
                 <order_status_after_payment>processing</order_status_after_payment>
-                <sort_order>1</sort_order>
-                <allowspecific>0</allowspecific>
-                <instructions></instructions>
+                <group>onpay</group>
             </onpay_card>
         </payment>
     </default>
