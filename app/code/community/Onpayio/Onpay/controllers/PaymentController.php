@@ -96,7 +96,7 @@ class Onpayio_Onpay_PaymentController extends Mage_Core_Controller_Front_Action 
             $payment->setCcExpYear($this->getRequest()->getParam('onpay_expiry_year'));
         }
 
-        $transactionComment = __("OnPay - Transaction Authorized.');
+        $transactionComment = __('OnPay - Transaction Authorized.');
         $transaction = $payment->addTransaction(Mage_Sales_Model_Order_Payment_Transaction::TYPE_AUTH, null, false, $transactionComment);
         $payment->setAdditionalInformation(Mage_Sales_Model_Order_Payment_Transaction::RAW_DETAILS, $this->getRequest()->getParams());
 

@@ -5,7 +5,7 @@
             <groups>
                 <onpay translate="label">
                     <label>OnPay.io</label>
-                    <tab>onpay</tab>
+                    <tab>onpaytab</tab>
                     <frontend_type>text</frontend_type>
                     <sort_order>100</sort_order>
                     <show_in_default>1</show_in_default>
@@ -20,28 +20,12 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </active>
-                        <apikey translate="label">
-                            <label>API key</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </apikey>
-                        <gateway translate="label">
-                            <label>Gateway ID</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </gateway>
+                        </active>                        
                         <testmode translate="label">
                             <label>Test mode</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>5</sort_order>
+                            <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -50,7 +34,7 @@
                             <label>Payment window Language</label>
                             <frontend_type>select</frontend_type>
                             <source_model>onpay/system_config_source_PaymentWindowLanguage</source_model>
-                            <sort_order>6</sort_order>
+                            <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -59,7 +43,7 @@
                             <label>Payment window Design</label>
                             <frontend_type>select</frontend_type>
                             <source_model>onpay/system_config_source_PaymentWindowDesign</source_model>
-                            <sort_order>7</sort_order>
+                            <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -68,19 +52,35 @@
                             <label>Payment window 3Dsecure</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>8</sort_order>
+                            <sort_order>5</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </window3dsecure>
+                        <gateway translate="label">
+                            <label>Gateway ID</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>onpay/adminhtml_system_config_readonly</frontend_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gateway>
                         <secret translate="label">
                             <label>Secret</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>9</sort_order>
+                            <frontend_model>onpay/adminhtml_system_config_readonly</frontend_model>
+                            <sort_order>8</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </secret>
+                        <auth_button>
+                            <label></label>
+                            <frontend_model>onpay/adminhtml_system_config_authButton</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </auth_button>
                     </fields>
                 </onpay>
                 <onpay_card>
@@ -118,7 +118,7 @@
                         </sort_order>
                         <instructions translate="label">
                             <label>Instructions</label>
-                            <frontend_type>textarea</frontend_type>
+                            <frontend_type>text</frontend_type>
                             <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>

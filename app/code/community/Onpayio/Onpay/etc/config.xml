@@ -55,4 +55,16 @@
             </onpay>
         </routers>
     </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <use>admin</use>
+                <args>
+                    <modules>
+                        <onpay after="Mage_Adminhtml">Onpayio_Onpay_Adminhtml</onpay>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
 </config>
