@@ -41,6 +41,8 @@
     class_alias('OpenmageOnpay\OnPay\API\Transaction\TransactionHistory', 'OnPay\API\Transaction\TransactionHistory');
 
     class_alias('OpenmageOnpay\OnPay\API\Util\Converter', 'OnPay\API\Util\Converter');
+    class_alias('OpenmageOnpay\OnPay\API\Util\Currencies', 'OnPay\API\Util\Currencies');
+    class_alias('OpenmageOnpay\OnPay\API\Util\Currency', 'OnPay\API\Util\Currency');
     class_alias('OpenmageOnpay\OnPay\API\Util\Link', 'OnPay\API\Util\Link');
     class_alias('OpenmageOnpay\OnPay\API\Util\Pagination', 'OnPay\API\Util\Pagination');
     class_alias('OpenmageOnpay\OnPay\API\Util\PaymentMethods\Enums\Methods', 'OnPay\API\Util\PaymentMethods\Enums\Methods');
