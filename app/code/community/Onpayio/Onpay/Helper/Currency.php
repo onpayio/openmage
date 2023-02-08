@@ -4,6 +4,7 @@
 include_once __DIR__ . '/../require.php';
 
 use Alcohol\ISO4217;
+use OnPay\API\Util\Currency;
 
 class Onpayio_Onpay_Helper_Currency extends Mage_Core_Helper_Abstract {
     /**
@@ -87,5 +88,10 @@ class Onpayio_Onpay_Helper_Currency extends Mage_Core_Helper_Abstract {
         } catch (\OutOfBoundsException $e) {
             return null;
         }
+    }
+
+    public function isCurrencySupported($currencyCode, $methodName) {
+        $currency = new Currency($currencyCode);
+        return $currency->isPaymentMethodAvailable($methodName);
     }
 }
