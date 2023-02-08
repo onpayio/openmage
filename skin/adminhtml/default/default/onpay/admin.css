@@ -1,0 +1,7 @@
+#payment_onpay > table.form-list {
+    width: 100% !important;
+}
+
+#payment_onpay > table.form-list tr.nested div.section-config {
+    margin-top: 20px;
+}
