@@ -36,12 +36,65 @@
                 <model>onpay/method_card</model>
                 <title>OnPay.io - Credit Card</title>
                 <active>1</active>
-                <allowspecific>0</allowspecific>
                 <sort_order>1</sort_order>
                 <order_status>pending</order_status>
                 <order_status_after_payment>processing</order_status_after_payment>
                 <group>onpay</group>
             </onpay_card>
+            <onpay_anyday>
+                <model>onpay/method_anyday</model>
+                <title>OnPay.io - Anyday</title>
+                <active>0</active>
+                <sort_order>2</sort_order>
+                <order_status>pending</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <group>onpay</group>
+            </onpay_anyday>
+            <onpay_mpo>
+                <model>onpay/method_mpo</model>
+                <title>OnPay.io - MobilePay Online</title>
+                <active>0</active>
+                <sort_order>3</sort_order>
+                <order_status>pending</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <group>onpay</group>
+            </onpay_mpo>
+            <onpay_paypal>
+                <model>onpay/method_paypal</model>
+                <title>OnPay.io - PayPal</title>
+                <active>0</active>
+                <sort_order>4</sort_order>
+                <order_status>pending</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <group>onpay</group>
+            </onpay_paypal>
+            <onpay_swish>
+                <model>onpay/method_swish</model>
+                <title>OnPay.io - Swish</title>
+                <active>0</active>
+                <sort_order>5</sort_order>
+                <order_status>pending</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <group>onpay</group>
+            </onpay_swish>
+            <onpay_viabill>
+                <model>onpay/method_viabill</model>
+                <title>OnPay.io - ViaBill</title>
+                <active>0</active>
+                <sort_order>6</sort_order>
+                <order_status>pending</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <group>onpay</group>
+            </onpay_viabill>
+            <onpay_vipps>
+                <model>onpay/method_vipps</model>
+                <title>OnPay.io - Vipps</title>
+                <active>0</active>
+                <sort_order>7</sort_order>
+                <order_status>pending</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <group>onpay</group>
+            </onpay_vipps>
         </payment>
     </default>
     <frontend>
@@ -67,4 +120,13 @@
             </adminhtml>
         </routers>
     </admin>
+    <adminhtml>
+    <layout>
+        <updates>
+            <namespace_module>
+                <file>Onpayio_Onpay.xml</file>
+            </namespace_module>
+        </updates>
+    </layout>
+</adminhtml>
 </config>

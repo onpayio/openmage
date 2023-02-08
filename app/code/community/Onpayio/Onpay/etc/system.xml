@@ -8,6 +8,8 @@
                     <tab>onpaytab</tab>
                     <frontend_type>text</frontend_type>
                     <sort_order>100</sort_order>
+                    <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                    <group>onpay</group>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
@@ -81,51 +83,324 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                         </auth_button>
+
+                        <onpay_card type="group" translate="label">
+                            <label>Method - Credit card</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active translate="label">
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>1</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>2</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </title>
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>3</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </sort_order>
+                                <instructions translate="label">
+                                    <label>Instructions</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>4</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </instructions>
+                            </fields>
+                        </onpay_card>
+
+                        <onpay_anyday type="group" translate="label">
+                            <label>Method - Anyday</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>31</sort_order>
+                            <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active translate="label">
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>1</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>2</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </title>
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>3</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </sort_order>
+                                <instructions translate="label">
+                                    <label>Instructions</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>4</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </instructions>
+                            </fields>
+                        </onpay_anyday>
+
+                        <onpay_mpo type="group" translate="label">
+                            <label>Method - MobilePay Online</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>32</sort_order>
+                            <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active translate="label">
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>1</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>2</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </title>
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>3</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </sort_order>
+                                <instructions translate="label">
+                                    <label>Instructions</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>4</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </instructions>
+                            </fields>
+                        </onpay_mpo>
+
+                        <onpay_paypal type="group" translate="label">
+                            <label>Method - PayPal</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>33</sort_order>
+                            <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active translate="label">
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>1</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>2</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </title>
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>3</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </sort_order>
+                                <instructions translate="label">
+                                    <label>Instructions</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>4</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </instructions>
+                            </fields>
+                        </onpay_paypal>
+
+                        <onpay_swish type="group" translate="label">
+                            <label>Method - Swish</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active translate="label">
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>1</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>2</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </title>
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>3</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </sort_order>
+                                <instructions translate="label">
+                                    <label>Instructions</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>4</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </instructions>
+                            </fields>
+                        </onpay_swish>
+
+                        <onpay_viabill type="group" translate="label">
+                            <label>Method - ViaBill</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active translate="label">
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>1</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>2</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </title>
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>3</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </sort_order>
+                                <instructions translate="label">
+                                    <label>Instructions</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>4</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </instructions>
+                            </fields>
+                        </onpay_viabill>
+
+                        <onpay_vipps type="group" translate="label">
+                            <label>Method - Vipps</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>36</sort_order>
+                            <frontend_model>adminhtml/system_config_form_fieldset</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active translate="label">
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>1</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>2</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </title>
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>3</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </sort_order>
+                                <instructions translate="label">
+                                    <label>Instructions</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>4</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </instructions>
+                            </fields>
+                        </onpay_vipps>
+
                     </fields>
                 </onpay>
-                <onpay_card>
-                    <label>OnPay.io Card</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>101</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <title translate="label">
-                            <label>Title</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </title>
-                        <sort_order translate="label">
-                            <label>Sort Order</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </sort_order>
-                        <instructions translate="label">
-                            <label>Instructions</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>4</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </instructions>
-                    </fields>
-                </onpay_card>
             </groups>
         </payment>
     </sections>
