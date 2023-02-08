@@ -54,18 +54,18 @@ class Onpayio_Onpay_PaymentController extends Mage_Core_Controller_Front_Action 
         // Get quote by reserved order id with onpay reference value
         $quote = Mage::getModel('sales/quote')->getCollection()->addFieldToFilter('reserved_order_id', $onpayReference)->getFirstItem();
 
-        // Check if order exists
+        // Check if quote exists
         if (null === $quote->getId()) {
             $this->jsonResponse('Order not found', true, 400);
             return;
         }
 
         // Get order
-        $order = Mage::getModel('sales/order')->loadByAttribute('quote_id', $quote->getId());
+        $order = Mage::getModel('sales/order')->loadByAttribute('quote_id', $quote->getId())->loadByAttribute('increment_id', $onpayReference);
         
         // If order is not in pending state, no need to do anything with the order
         if ($order->getStatus() !== self::ONPAY_PENDING_STATE) {
-            $this->jsonResponse('Order validated');
+            $this->jsonResponse('Order processed');
             return;
         }
 
