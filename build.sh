@@ -29,7 +29,7 @@ php composer.phar global require humbug/php-scoper
 COMPOSER_BIN_DIR="$(composer global config bin-dir --absolute)"
 "$COMPOSER_BIN_DIR"/php-scoper add-prefix
 
-# Dump composer autoload for build folder
+# Dump composer autoload for build directory
 php composer.phar dump-autoload --working-dir build --classmap-authoritative
 
 # Remove composer
@@ -38,7 +38,7 @@ rm composer.phar
 # Remove existing build zip file
 rm openmage-onpay.zip
 
-# Rsync contents of folder to new directory that we will use for the build
+# Rsync contents of directory to new directory that we will use for the build
 rsync -Rr ./* ./openmage-onpay
 
 # Remove directories and files from newly created directory, that we won't need in final build
@@ -48,13 +48,34 @@ rm ./openmage-onpay/composer.json
 rm ./openmage-onpay/composer.lock
 rm ./openmage-onpay/scoper.inc.php
 rm ./openmage-onpay/LICENSE
+rm ./openmage-onpay/map
+rm ./openmage-onpay/mapper.php
 
 mv ./openmage-onpay/build ./openmage-onpay/app/code/community/Onpayio/Onpay/Model/
 
-# Zip contents of newly created directory
+# Perform file map check and cleanup afterwards
+FILE_MAP_RESULT="$(php -f mapper.php path='./openmage-onpay')"
+if [ "$FILE_MAP_RESULT" != "" ]
+then
+    >&2 echo 'ERROR: check of mapped files failed'
+    echo "$FILE_MAP_RESULT"
+
+    # Clean up
+    rm -rf openmage-onpay
+    rm -rf vendor
+    rm -rf build
+
+    exit 1
+fi
+
+# Navigate to build directory
 cd openmage-onpay
+
+# Zip contents of build directory
 zip -r openmage-onpay.zip ./*
 mv openmage-onpay.zip ../
+
+# Navigate up
 cd ..
 
 # Clean up
