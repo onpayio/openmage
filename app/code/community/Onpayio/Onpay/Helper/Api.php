@@ -8,8 +8,8 @@ use OnPay\API\PaymentWindow;
 class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
     const ONPAY_PLUGIN_VERSION = '0.0.1';
 
-    public function getPaymentLink(?string $method) {
-        $paymentWindow = $this->createPaymentWindow($method);
+    public function getPaymentLink(Mage_Sales_Model_Order $order, ?string $method) {
+        $paymentWindow = $this->createPaymentWindow($order, $method);
         $onpayApi = $this->getOnPayClient();
         $payment = $onpayApi->payment()->createNewPayment($paymentWindow);
         return $payment->getPaymentWindowLink();
@@ -61,7 +61,22 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
         return $onpayApi->isAuthorized();
     }
 
-    private function getOnPayClient($prepareRedirectUri = false) {
+    public function captureTransaction(string $transactionId, int $minorAmount) {
+        $onpayApi = $this->getOnPayClient();
+        return $onpayApi->transaction()->captureTransaction($transactionId, $minorAmount);
+    }
+
+    public function refundTransaction(string $transactionId, int $minorAmount) {
+        $onpayApi = $this->getOnPayClient();
+        return $onpayApi->transaction()->refundTransaction($transactionId, $minorAmount);
+    }
+
+    public function cancelTransaction(string $transactionId) {
+        $onpayApi = $this->getOnPayClient();
+        return $onpayApi->transaction()->cancelTransaction($transactionId);
+    }
+
+    private function getOnPayClient(bool $prepareRedirectUri = false) {
         $accessToken = Mage::getStoreConfig('payment/onpay/apikey');
         $tokenStorage = Mage::getModel('onpay/TokenStorage');
 
@@ -77,19 +92,12 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
         return $onPayAPI;
     }
 
-    private function getOrder() {
-        $quoteId = Mage::getSingleton('checkout/session')->getQuoteId();
-        return Mage::getModel("sales/order")->load($quoteId);
-    }
-
     private function getReservedOrderId() {
         $quote = Mage::getSingleton('checkout/session')->getQuote();
         return $quote->getReservedOrderId();
     }
 
-    protected function createPaymentWindow(?string $method) {
-        $order = $this->getOrder();
-
+    protected function createPaymentWindow(Mage_Sales_Model_Order $order, ?string $method) {
         $payment = $order->getPayment();
         if (null !== $payment->getLastTransId()) {
             //Cannot redirect: This order is already processed
