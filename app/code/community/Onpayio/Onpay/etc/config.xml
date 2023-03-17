@@ -107,6 +107,13 @@
                 </args>
             </onpay>
         </routers>
+        <layout>
+            <updates>
+                <namespace_module>
+                    <file>onpay.xml</file>
+                </namespace_module>
+            </updates>
+        </layout>
     </frontend>
     <admin>
         <routers>
@@ -121,12 +128,12 @@
         </routers>
     </admin>
     <adminhtml>
-    <layout>
-        <updates>
-            <namespace_module>
-                <file>Onpayio_Onpay.xml</file>
-            </namespace_module>
-        </updates>
-    </layout>
-</adminhtml>
+        <layout>
+            <updates>
+                <namespace_module>
+                    <file>onpay.xml</file>
+                </namespace_module>
+            </updates>
+        </layout>
+    </adminhtml>
 </config>
