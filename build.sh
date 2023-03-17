@@ -48,6 +48,8 @@ rm ./openmage-onpay/composer.json
 rm ./openmage-onpay/composer.lock
 rm ./openmage-onpay/scoper.inc.php
 rm ./openmage-onpay/LICENSE
+rm ./openmage-onpay/CHANGELOG.md
+rm ./openmage-onpay/README.md
 rm ./openmage-onpay/map
 rm ./openmage-onpay/mapper.php
 
