@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addItem" ifconfig="payment/onpay/active">
+                <type>skin_css</type>
+                <name>css/onpay/styles.css</name>
+            </action>
+        </reference>
+    </default>
+</layout>
