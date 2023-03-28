@@ -29,10 +29,19 @@ use OnPay\TokenStorageInterface;
 
 class Onpayio_Onpay_Model_TokenStorage implements TokenStorageInterface {
     const CONFIG_PATH = 'payment/onpay/oauth2_token';
+
+    /**
+     * @var string|null $token
+     */
+    protected $token = null;
+
     /**
      * @return string|null
      */
     public function getToken() {
+        if (null !== $this->token) {
+            return $this->token;
+        }
         return Mage::getStoreConfig(self::CONFIG_PATH);
     }
 
@@ -43,6 +52,8 @@ class Onpayio_Onpay_Model_TokenStorage implements TokenStorageInterface {
     public function saveToken($token) {
         $save = Mage::getConfig()->saveConfig(self::CONFIG_PATH, $token);
         Mage::getConfig()->cleanCache();
+        $this->token = $token;
         return $save;
     }
 }
+
