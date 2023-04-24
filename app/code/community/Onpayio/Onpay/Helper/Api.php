@@ -29,7 +29,7 @@ use OnPay\OnPayAPI;
 use OnPay\API\PaymentWindow;
 
 class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
-    const ONPAY_PLUGIN_VERSION = '0.0.1';
+    const ONPAY_PLUGIN_VERSION = '1.0.0';
 
     public function getPaymentLink(Mage_Sales_Model_Order $order, ?string $method) {
         $paymentWindow = $this->createPaymentWindow($order, $method);
