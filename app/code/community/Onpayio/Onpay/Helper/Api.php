@@ -105,7 +105,8 @@ class Onpayio_Onpay_Helper_Api extends Mage_Core_Helper_Abstract {
 
         $params = [
             'client_id' => 'OnPay OpenMage',
-            'redirect_uri' => ''
+            'redirect_uri' => '',
+            'platform' => 'openmage/' . self::ONPAY_PLUGIN_VERSION . '/' . Mage::getVersion(),
         ];
         if ($prepareRedirectUri) {
             $params['redirect_uri'] = Mage::helper('adminhtml')->getUrl('adminhtml/onpayAuth/return', ['_secure' => true]);
