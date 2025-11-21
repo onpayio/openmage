@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - Added general platform that identifies the pluin with the API.
+- Added SECURITY.md
 
 ## [1.0.0] - 2023-04-24
 - Initial release
